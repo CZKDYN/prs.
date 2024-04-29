@@ -1,0 +1,233 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    max-width: 300px;
+    margin: 0 auto;
+    flex-basis: 100%;
+  }
+  
+  nav button:hover {
+    background-color: #45a049;
+    max-width: 300px;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  section {
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  section h2 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 8px;
+  }
+  
+  select,
+  input[type="date"],
+  textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+
+  .slot-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .slot-btn:hover {
+    background-color: darkgreen;
+  }
+  
+  .slot-btn:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+
+  #slot-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+section#book-parking-section {
+    flex-basis: 50%;
+    margin: 0 auto; 
+  }
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px; 
+  }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+nav button:hover {
+    background-color: #45a049;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+section {
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+section h2 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.slot-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slot-btn:hover {
+    background-color: darkgreen;
+}
+  

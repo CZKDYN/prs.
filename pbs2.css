@@ -1,0 +1,61 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 10px;
+}
+
+.message-box {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.message-box:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
+}
+
+.message-box h2 {
+  margin-bottom: 20px;
+  color: #333333;
+  
+}
+
+.message-box label {
+  font-weight: bold;
+  color: #555555;
+}
+
+.message-box textarea {
+  width: 96%;
+  height: 150px;
+  resize: none;
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.message-box button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.message-box button:hover {
+  background-color: #0056b3;
+}
