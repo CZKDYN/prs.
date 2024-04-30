@@ -22,10 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
           const slotInput = document.querySelector('#selected-slot');
           slotInput.value = slotNumber;
 
-          slotButtons.forEach((button) => {
-              if (button !== this) {
-                  button.removeEventListener('click', handleSlotClick);
-                  button.disabled = true;
+          slotButtons.forEach((btn) => {
+              if (btn !== button) {
+                  btn.removeEventListener('click', handleSlotClick);
+                  btn.disabled = true;
               }
           });
 
@@ -38,6 +38,29 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const bookingForm = document.getElementById('booking-form');
+  const dateInput = document.getElementById('date');
+
+  function updateSlotAvailability() {
+      const selectedDate = new Date(dateInput.value);
+      const currentDate = new Date();
+
+      slotButtons.forEach((button) => {
+          const slotNumber = parseInt(button.innerText);
+          const slotBooked = unavailableSlots.includes(slotNumber);
+
+          if (selectedDate >= currentDate) {
+              button.style.display = slotBooked ? 'none' : 'block';
+              button.disabled = slotBooked;
+          } else {
+              button.style.display = 'none';
+              button.disabled = true;
+          }
+      });
+  }
+
+  dateInput.addEventListener('change', function() {
+      updateSlotAvailability();
+  });
 
   bookingForm.addEventListener('submit', function(event) {
       event.preventDefault();
@@ -99,4 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const phoneRegex = /^09\d{9}$/;
       return phoneRegex.test(phone);
   }
+
+  updateSlotAvailability(); // Initial slot availability check
 });
