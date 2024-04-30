@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const currentDate = new Date();
       const minDate = new Date('2024-04-30');
       const maxDate = new Date('2090-04-30');
-      if (selectedDate < currentDate || selectedDate < minDate || selectedDate > maxDate) {
+      if (selectedDate < currentDate || selectedDate < minDate) {
           alert('Selected date must be current or future date');
           return;
       }
