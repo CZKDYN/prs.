@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (feedbackButton) {
       feedbackButton.addEventListener('click', function() {
-          window.location.href = 'pbs2.html'; 
+          window.location.href = 'pbs2.html';
       });
   }
 
@@ -12,92 +12,91 @@ document.addEventListener('DOMContentLoaded', function() {
   let slotSelected = false;
 
   function handleSlotClick(button) {
-    const slotNumber = parseInt(button.innerText);
-    const slotBooked = unavailableSlots.includes(slotNumber);
+      const slotNumber = parseInt(button.innerText);
+      const slotBooked = unavailableSlots.includes(slotNumber);
 
-    if (!slotSelected && !slotBooked) {
-      slotSelected = true; 
-      button.style.backgroundColor = 'red'; 
+      if (!slotSelected && !slotBooked) {
+          slotSelected = true;
+          button.style.backgroundColor = 'red';
 
-      const slotInput = document.querySelector('#selected-slot');
-      slotInput.value = slotNumber;
+          const slotInput = document.querySelector('#selected-slot');
+          slotInput.value = slotNumber;
 
-      slotButtons.forEach((button) => {
-        if (button !== this) {
-          button.removeEventListener('click', handleSlotClick);
-          button.disabled = true; 
-        }
-      });
+          slotButtons.forEach((button) => {
+              if (button !== this) {
+                  button.removeEventListener('click', handleSlotClick);
+                  button.disabled = true;
+              }
+          });
 
-      button.classList.add('selected');
-    }
+          button.classList.add('selected');
+      }
   }
 
   slotButtons.forEach((button) => {
-    button.addEventListener('click', () => handleSlotClick(button));
+      button.addEventListener('click', () => handleSlotClick(button));
   });
 
   const bookingForm = document.getElementById('booking-form');
-  
+
   bookingForm.addEventListener('submit', function(event) {
       event.preventDefault();
 
       const formData = new FormData(bookingForm);
       const phone = formData.get('contact');
+      const slotNumber = formData.get('selected-slot');
+      const selectedDate = new Date(formData.get('date'));
 
       if (!isValidPhoneNumber(phone)) {
           alert('Please enter a valid Philippine phone number with 11 digits.');
           return;
       }
 
-      const slotNumber = formData.get('selected-slot');
-
       if (unavailableSlots.includes(parseInt(slotNumber))) {
           alert(`Slot ${slotNumber} is unavailable! Please select another slot.`);
-      } else {
-          alert(`Booking successful! Slot ${slotNumber} has been reserved for you.`);
+          return;
+      }
 
-        
-          bookingForm.reset();
+      const currentDate = new Date();
+      const minDate = new Date('2024-04-30');
+      const maxDate = new Date('2090-04-30');
+      if (selectedDate < currentDate || selectedDate < minDate || selectedDate > maxDate) {
+          alert('Selected date must be current or future date');
+          return;
+      }
 
-       
-          slotSelected = false;
-          slotButtons.forEach((button) => {
-            button.addEventListener('click', () => handleSlotClick(button)); 
-            button.disabled = false; 
-          });
-
-         
-          slotButtons.forEach((button) => {
-            button.style.display = 'block';
-          });
-
-      
-          openRemainingSlotButtons(slotNumber);
-
-        
-          if (areAllSlotsBooked()) {
-            alert('There are no remaining slots available.');
-          }
+      alert(`Booking successful! Slot ${slotNumber} has been reserved for you.`);
+      bookingForm.reset();
+      slotSelected = false;
+      slotButtons.forEach((button) => {
+          button.addEventListener('click', () => handleSlotClick(button));
+          button.disabled = false;
+      });
+      slotButtons.forEach((button) => {
+          button.style.display = 'block';
+      });
+      openRemainingSlotButtons(slotNumber);
+      if (areAllSlotsBooked()) {
+          alert('There are no remaining slots available.');
       }
   });
 
   function areAllSlotsBooked() {
-    return Array.from(slotButtons).every(button => unavailableSlots.includes(parseInt(button.innerText)));
+      return Array.from(slotButtons).every(button => unavailableSlots.includes(parseInt(button.innerText)));
   }
 
   function openRemainingSlotButtons(selectedSlotNumber) {
-    slotButtons.forEach((button) => {
-      const slotNumber = parseInt(button.innerText);
-      if (slotNumber !== selectedSlotNumber && !unavailableSlots.includes(slotNumber)) {
-        button.style.display = 'block';
-        button.disabled = false;
-      }
-    });
+      slotButtons.forEach((button) => {
+          const slotNumber = parseInt(button.innerText);
+          if (slotNumber !== selectedSlotNumber && !unavailableSlots.includes(slotNumber)) {
+              button.style.display = 'block';
+              button.disabled = false;
+          }
+      });
   }
 
   function isValidPhoneNumber(phone) {
-    const phoneRegex = /^09\d{9}$/;
-    return phoneRegex.test(phone);
+      const phoneRegex = /^09\d{9}$/;
+      return phoneRegex.test(phone);
   }
 });
