@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     function showThankYouMessage() {
         alert('Thank you for using this system and providing your feedback!');
-        window.location.href = 'pbs.html'; 
+        window.location.href = 'index.html'; 
     }
     const bookParkingButton = document.getElementById('book-parking-btn');
     bookParkingButton.addEventListener('click', function() {
